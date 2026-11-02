@@ -1,0 +1,81 @@
+{
+  "hardware": {
+    "microcontroller": "Arduino Uno (ATmega328P)",
+    "serial_port": "/dev/ttyUSB0",
+    "baud_rate": 115200,
+    "sampling_interval_ms": 1000,
+    "pins": {
+      "ds18b20_pin": "D2",
+      "dht11_pin": "D3",
+      "yg1006_digital_pin": "D4",
+      "yg1006_analog_pin": "A1",
+      "smoke_analog_pin": "A0"
+    },
+    "sensors": {
+      "ds18b20": {
+        "name": "DS18B20 Temperature Sensor",
+        "purpose": "Equipment Temperature Monitoring",
+        "signal_type": "Digital (OneWire)",
+        "unit": "\u00b0C",
+        "normal_min": 20.0,
+        "normal_max": 52.0,
+        "warning_threshold": 55.0,
+        "critical_threshold": 68.0
+      },
+      "dht11": {
+        "name": "DHT11 Temperature & Humidity Sensor",
+        "purpose": "Environmental / Ambient Condition Monitoring",
+        "signal_type": "Digital (Single-Bus)",
+        "temp_unit": "\u00b0C",
+        "humidity_unit": "% RH",
+        "temp_normal_min": 15.0,
+        "temp_normal_max": 34.0,
+        "temp_warning_threshold": 36.0,
+        "temp_critical_threshold": 42.0,
+        "humidity_normal_min": 30.0,
+        "humidity_normal_max": 68.0,
+        "humidity_warning_threshold": 72.0,
+        "humidity_critical_threshold": 82.0
+      },
+      "yg1006": {
+        "name": "YG1006 NPN Silicon Phototransistor",
+        "purpose": "Infrared / Flame Detection",
+        "signal_type": "Digital Status + Optional Analog IR",
+        "active_low": true,
+        "ir_wavelength_nm": "760-1100 nm",
+        "analog_flame_threshold": 400
+      },
+      "smoke": {
+        "name": "Analog Smoke Sensor",
+        "model": "Configurable MQ-Series (e.g., MQ-2 / MQ-135)",
+        "purpose": "Smoke / Gas Emission Monitoring",
+        "signal_type": "Analog ADC (10-bit, 0-1023)",
+        "unit": "ADC (0-1023)",
+        "baseline_clean_air_adc": 160,
+        "normal_max_adc": 280,
+        "warning_threshold_adc": 320,
+        "critical_threshold_adc": 480
+      }
+    }
+  },
+  "ros2": {
+    "distro": "Humble Hawksbill",
+    "os": "Ubuntu 22.04 LTS",
+    "package_name": "predictive_condition_monitoring",
+    "topics": {
+      "ds18b20_temp": "/sensors/ds18b20/temperature",
+      "dht11_temp": "/sensors/dht11/temperature",
+      "dht11_humidity": "/sensors/dht11/humidity",
+      "yg1006_flame": "/sensors/yg1006/flame_detected",
+      "smoke_raw": "/sensors/smoke/raw_adc",
+      "telemetry_frame": "/sensors/telemetry_frame",
+      "condition_report": "/analytics/condition_report"
+    }
+  },
+  "logging": {
+    "csv_history_path": "data/sensor_readings_history.csv",
+    "sqlite_db_path": "data/condition_monitoring.db",
+    "session_dir": "data/logged_sessions",
+    "auto_record_on_startup": true
+  }
+}

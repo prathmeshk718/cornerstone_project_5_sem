@@ -1,0 +1,157 @@
+{
+  "trained_at_iso": "2026-11-02T11:09:59Z",
+  "dataset_total_samples": 4223,
+  "train_samples": 3167,
+  "test_samples": 1056,
+  "models": {
+    "anomaly_detection": "Isolation Forest (n_estimators=120)",
+    "fault_classification": "Random Forest Classifier (n_estimators=150)",
+    "predictive_trend": "Rolling Linear Trend Forecaster"
+  },
+  "metrics": {
+    "accuracy": 0.9877,
+    "precision_macro": 0.9128,
+    "recall_macro": 0.8984,
+    "f1_score_macro": 0.8962,
+    "precision_weighted": 0.989,
+    "recall_weighted": 0.9877,
+    "f1_score_weighted": 0.9879
+  },
+  "confusion_matrix": {
+    "labels": [
+      "Normal Operating Condition",
+      "Equipment Overheating (DS18B20)",
+      "Environmental Temp/Humidity Anomaly (DHT11)",
+      "Smoke / Gas Emission Anomaly",
+      "Fire / Flame Hazard (YG1006)"
+    ],
+    "label_ids": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "matrix": [
+      [
+        963,
+        2,
+        3,
+        0,
+        0
+      ],
+      [
+        1,
+        50,
+        3,
+        0,
+        0
+      ],
+      [
+        2,
+        0,
+        19,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        7,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        1,
+        4
+      ]
+    ]
+  },
+  "per_class_metrics": [
+    {
+      "class_id": 0,
+      "class_name": "Normal Operating Condition",
+      "precision": 0.9969,
+      "recall": 0.9948,
+      "f1_score": 0.9959,
+      "test_support": 968
+    },
+    {
+      "class_id": 1,
+      "class_name": "Equipment Overheating (DS18B20)",
+      "precision": 0.9615,
+      "recall": 0.9259,
+      "f1_score": 0.9434,
+      "test_support": 54
+    },
+    {
+      "class_id": 2,
+      "class_name": "Environmental Temp/Humidity Anomaly (DHT11)",
+      "precision": 0.7308,
+      "recall": 0.9048,
+      "f1_score": 0.8085,
+      "test_support": 21
+    },
+    {
+      "class_id": 3,
+      "class_name": "Smoke / Gas Emission Anomaly",
+      "precision": 0.875,
+      "recall": 1.0,
+      "f1_score": 0.9333,
+      "test_support": 7
+    },
+    {
+      "class_id": 4,
+      "class_name": "Fire / Flame Hazard (YG1006)",
+      "precision": 1.0,
+      "recall": 0.6667,
+      "f1_score": 0.8,
+      "test_support": 6
+    }
+  ],
+  "feature_importances": [
+    {
+      "feature": "ds18b20_temp_c",
+      "importance": 0.1712
+    },
+    {
+      "feature": "temp_differential_c",
+      "importance": 0.1567
+    },
+    {
+      "feature": "smoke_smoothed",
+      "importance": 0.1401
+    },
+    {
+      "feature": "smoke_raw_adc",
+      "importance": 0.1359
+    },
+    {
+      "feature": "smoke_baseline_ratio",
+      "importance": 0.1172
+    },
+    {
+      "feature": "dht11_temp_c",
+      "importance": 0.0672
+    },
+    {
+      "feature": "yg1006_flame",
+      "importance": 0.0666
+    },
+    {
+      "feature": "dht11_humidity_pct",
+      "importance": 0.0664
+    },
+    {
+      "feature": "ds18b20_smoothed",
+      "importance": 0.0575
+    },
+    {
+      "feature": "ds18b20_rolling_std",
+      "importance": 0.0212
+    }
+  ]
+}

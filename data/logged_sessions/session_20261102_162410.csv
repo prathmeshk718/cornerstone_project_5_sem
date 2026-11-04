@@ -1,4 +1,0 @@
-timestamp_unix,iso_timestamp,seq,source_mode,ds18b20_temp_c,dht11_temp_c,dht11_humidity_pct,yg1006_flame,yg1006_ir_raw,smoke_raw_adc,temp_differential_c,operator_label,operator_label_name,ml_predicted_class,ml_predicted_label,anomaly_detected,risk_level
-1793616851.03,2026-11-02T10:54:11Z,2511,ros2_sim:normal,42.52,26.32,50.0,0,960,159,16.2,0,Normal Operating Condition,0,Normal Operating Condition,0,LOW
-1793616852.063,2026-11-02T10:54:12Z,2512,ros2_sim:normal,42.46,26.37,49.9,0,954,153,16.09,0,Normal Operating Condition,0,Normal Operating Condition,0,LOW
-1793616853.092,2026-11-02T10:54:13Z,2513,ros2_sim:normal,42.79,26.53,49.7,0,946,152,16.26,0,Normal Operating Condition,0,Normal Operating Condition,0,LOW

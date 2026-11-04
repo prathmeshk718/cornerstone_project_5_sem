@@ -1,0 +1,16 @@
+serial_bridge:
+  ros__parameters:
+    serial_port: "/dev/ttyACM0"
+    fallback_ports: ["/dev/ttyACM0", "/dev/ttyACM1", "/dev/ttyUSB0", "/dev/ttyUSB1"]
+    baud_rate: 115200
+    serial_timeout_sec: 1.5
+    reconnect_interval_sec: 2.0
+
+analytics_server:
+  ros__parameters:
+    backend_host: "0.0.0.0"
+    backend_port: 8000
+    database_path: "/home/prath/ros2_ws/src/csp_workspace/backend/data/sensor_monitoring.db"
+    thresholds_path: "/home/prath/ros2_ws/src/csp_workspace/backend/data/thresholds.json"
+    arduino_timeout_sec: 3.5
+    sensor_timeout_sec: 3.5
